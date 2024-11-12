@@ -18,7 +18,7 @@ def main():
             if arg_str[:8] == "--align=" or arg_str[:9] == "--output=":
                 pass
             else:
-                print("Wrong flag. (--output= || --align=)")
+                print("Wrong flag. (--output= or --align=)")
                 return
 
         if arg_str[:8] == "--align=":
@@ -34,7 +34,7 @@ def main():
             arg_str = sys.argv[2]
             third_banner = True
             if "--output=" in sys.argv[2]:
-                print("Can't use output flag and align flag same time!")
+                print("Can not use output flag and align flag same time!")
                 return
 
         elif arg_str[:9] == "--output=":
@@ -49,7 +49,7 @@ def main():
             arg_str = sys.argv[2]
             third_banner = True
             if "--align=" in sys.argv[2]:
-                print("Can't use output flag and align flag same time!")
+                print("Can not use output flag and align flag same time!")
                 return
 
     if len(sys.argv) == 2:
@@ -59,7 +59,7 @@ def main():
     elif len(sys.argv) == 4:
         style_banner = sys.argv[3].lower()
     else:
-        print("Usage: python main.py [OPTIONS] [STRING] [BANNER] || Example: python main.py \"test\" standard || Options: --output=, --align=")
+        print("Usage: python main.py [options] [string] [font] || Example: python main.py \"test\" standard || Options: --output=, --align=")
         return
 
     sep_args = arg_str.split("\\n")
@@ -87,7 +87,7 @@ def get_terminal_size():
         rows, columns = os.popen('stty size', 'r').read().split()
         return int(columns)
     except ValueError:
-        return 80  # default width
+        return 80
 
 def print_ascii_art_align(sentences, text_file, position, w):
     for word in sentences:
